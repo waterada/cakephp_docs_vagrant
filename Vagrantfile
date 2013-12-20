@@ -4,7 +4,7 @@
 # The path forked from the cakephp/docs in the github.com. You can specify a relative or absolute path.
 # If you specify a relative path, it means relative from this directory.
 # For example, when this directory is C:/cakephp_cookbook, forked_docs/docs means C:/cakephp_cookbook/forked_docs/docs.
-$FORKED_PATH = "C:/vagrants/cakephp_cookbook/forked_docs/docs"
+$FORKED_PATH = "/path/to/forked/docs/from/cakephp/docs"
 
 # If you want to off to firewall, add scripts for disabled iptable service into $script 
 # service iptables stop
@@ -39,13 +39,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network :forwarded_port, guest: 80, host: 8080
-  config.vm.network :forwarded_port, guest: 80, host: 8888, auto_correct: true
-  config.vm.network :forwarded_port, guest: 4444, host: 44, auto_corrent: true
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network :private_network, ip: "192.168.33.10"
-  config.vm.network :private_network, ip: "192.168.33.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
