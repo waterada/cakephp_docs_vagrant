@@ -4,7 +4,7 @@
 # The path forked from the cakephp/docs in the github.com. You can specify a relative or absolute path.
 # If you specify a relative path, it means relative from this directory.
 # For example, when this directory is C:/cakephp_cookbook, forked_docs/docs means C:/cakephp_cookbook/forked_docs/docs.
-$FORKED_PATH = "/path/to/forked/docs/from/cakephp/docs"
+$FORKED_PATH = File.open("forked_docs_path.conf").read
 
 # If you want to off to firewall, add scripts for disabled iptable service into $script 
 # service iptables stop
