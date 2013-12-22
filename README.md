@@ -17,14 +17,9 @@ Make、Python、Sphinx などはもはやインストールする必要がありません！
     $ vi forked_docs_path.conf
 
 開いたら、下記のように、https://github.com/cakephp/docs からフォークしてクローンした自分の docs ディレクトリのパスに書き換えます。
+たとえば、 `/Users/waterada/cakephp/docs` もしくは `C:/cakephp/docs` というように。
 
-    /Users/waterada/cakephp/docs
-
-もしくは
-
-    C:/cakephp/docs
-
-そうして、`vagrant up` してください。
+書き換えたら、`vagrant up` してください。
 
     $ vagrant up
 
@@ -66,13 +61,7 @@ Then, you need to open `forked_docs_path.conf`:
 
     $ vi forked_docs_path.conf
 
-And you need to change the path to your cloned docs directory forked from https://github.com/cakephp/docs. For example:
-
-    /Users/waterada/cakephp/docs
-
-or
-
-    C:/cakephp/docs
+And you need to change the path to your cloned docs directory forked from https://github.com/cakephp/docs. For example, `/Users/waterada/cakephp/docs` or `C:/cakephp/docs`.
 
 Then, `vagrant up`.
 
