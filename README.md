@@ -1,47 +1,47 @@
-CakePHP Cookbook(cakephp/docs)���r���h���邽�߂�Vagrant
+CakePHP Cookbook(cakephp/docs)をビルドするためのVagrant
 =======================================================
 
-sphinx�t�H�[�}�b�g�ŏ����ꂽ CakePHP Cookbook(cakephp/docs) �̃t�@�C�����r���h��������ȒP�ɂ��邽�߂̂��̂ł��B
-Make�APython�ASphinx �Ȃǂ͂��͂�C���X�g�[������K�v������܂���I
-���̑���� Virtual Box �� Vagrant ���g���̂ł��B
+sphinxフォーマットで書かれた CakePHP Cookbook(cakephp/docs) のファイルをビルドする環境を簡単につくるためのものです。
+Make、Python、Sphinx などはもはやインストールする必要がありません！
+その代わりに Virtual Box と Vagrant を使うのです。
 
-�C���X�g�[��
+インストール
 ------------
 
     $ git clone https://github.com/waterada/cakephp_docs_vagrant.git
     $ cd cakephp_docs_vagrant
     $ git submodule update --init
 
-���̌�A`forked_docs_path.conf` ���J���Ă��������B
+その後、`forked_docs_path.conf` を開いてください。
 
     $ vi forked_docs_path.conf
 
-�J������A���L�̂悤�ɁAhttps://github.com/cakephp/docs ����t�H�[�N���ăN���[������������ docs �f�B���N�g���̃p�X�ɏ��������܂��B
-���Ƃ��΁A `/Users/waterada/cakephp/docs` �������� `C:/cakephp/docs` �Ƃ����悤�ɁB
+開いたら、下記のように、https://github.com/cakephp/docs からフォークしてクローンした自分の docs ディレクトリのパスに書き換えます。
+たとえば、 `/Users/waterada/cakephp/docs` もしくは `C:/cakephp/docs` というように。
 
-������������A`vagrant up` ���Ă��������B
+書き換えたら、`vagrant up` してください。
 
     $ vagrant up
 
-�ȏ�ł��B
+以上です。
 
 
-�r���h
+ビルド
 ------
 
-���{��̖|����r���h�������Ȃ�:
+日本語の翻訳をビルドしたいなら:
 
     $ vagrant ssh
     [vagrant]$ cd /forked_docs
 
-�ŁA�}�E���g����Ă��� docs �̃p�X�܂ňړ����āA
+で、マウントされている docs のパスまで移動して、
 
     [vagrant]$ make html-ja
 
-�Ƃ��ăr���h������A���[�J���́Adocs �̃t�H���_�J���Ă��������Bbuild �Ƃ����t�H���_���o���オ���Ă���͂��ł��B
-���̒��Ƀr���h�ς݂̃t�@�C������������Ă��܂��̂ŁA�u���E�U�Œ��ڊJ���Ċm�F���Ă��������B
+としてビルドしたら、ローカルの、docs のフォルダ開いてください。build というフォルダが出来上がっているはずです。
+この中にビルド済みのファイルが生成されていますので、ブラウザで直接開いて確認してください。
 
-�ȏ�ł��B
+以上です。
 
 
 
