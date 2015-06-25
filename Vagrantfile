@@ -15,7 +15,7 @@ mv /etc/localtime /etc/localtime.org
 ln -s /usr/share/zoneinfo/Japan /etc/localtime
 service iptables stop
 chkconfig iptables off
-easy_install sphinx
+easy_install sphinx==1.2.3
 easy_install -U sphinxcontrib-phpdomain
 SCRIPT
 
@@ -58,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder $FORKED_PATH, "/forked_docs"
+  config.vm.synced_folder "/web/docs", "/forked_docs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -128,7 +128,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.json =	{
     }
 
-    chef.add_recipe "iptables"
     chef.add_recipe "yum::yum"
     chef.add_recipe "yum::epel"
     chef.add_recipe "yum::remi"
