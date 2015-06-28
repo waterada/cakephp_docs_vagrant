@@ -8,18 +8,20 @@ Make、Python、Sphinx などはもはやインストールする必要があり
 インストール
 ------------
 
+- https://github.com/cakephp/docs から自PC内へとフォークしてクローンしておきます。
+- 下記のコマンドを実行して `vagrant` 関連ファイルを取得します。
+
     $ git clone https://github.com/waterada/cakephp_docs_vagrant.git
     $ cd cakephp_docs_vagrant
-    $ git submodule update --init
 
-その後、`forked_docs_path.conf` を開いてください。
+- `Vagrantfile` の `/path/to/your/cakephp/docs` を自PC内の `docs` のパスに書き換えます。たとえば、 `/Users/waterada/cakephp/docs` もしくは `C:/cakephp/docs` というように。
 
-    $ vi forked_docs_path.conf
+    $ vi Vagrantfile
+    config.vm.synced_folder "/path/to/your/cakephp/docs", "/forked_docs"
+    ↓
+    config.vm.synced_folder "/path/to/your/cakephp/docs", "/forked_docs"
 
-開いたら、下記のように、https://github.com/cakephp/docs からフォークしてクローンした自分の docs ディレクトリのパスに書き換えます。
-たとえば、 `/Users/waterada/cakephp/docs` もしくは `C:/cakephp/docs` というように。
-
-書き換えたら、`vagrant up` してください。
+- 書き換えたら、`vagrant up` してください。
 
     $ vagrant up
 
@@ -48,22 +50,25 @@ Make、Python、Sphinx などはもはやインストールする必要があり
 Vagrant to build the cakephp/docs -- CakePHP Cookbook.
 ======================================================
 
-This is for easy making the envrinment to build sphinx format files of cakephp/docs -- CakePHP Cookbook. It means the Make, Python, Sphinx and so on no longer need to be installed into your PC! Instead, you will use the Virtual Box and Vagrant.
+This is for easy making the envrinment to build sphinx format files of cakephp/docs -- CakePHP Cookbook. It means the Make, Python, Sphinx and so on no longer need to be installed into your PC/Mac! Instead, you will use the Virtual Box and Vagrant.
 
 Installing
 ----------
 
+- Firstly, please fork and clone https://github.com/cakephp/docs to your PC or Mac.
+- Then, please execute the following commands to get the `vagrant` files.
+
     $ git clone https://github.com/waterada/cakephp_docs_vagrant.git
     $ cd cakephp_docs_vagrant
-    $ git submodule update --init
+    $ vi Vagrantfile
 
-Then, you need to open `forked_docs_path.conf`:
+- Then, please change the `/path/to/your/cakephp/docs` in the `Vagrantfile`. ex) `/Users/waterada/cakephp/docs` or `C:/cakephp/docs`.
 
-    $ vi forked_docs_path.conf
+    $ vi Vagrantfile
+    before) config.vm.synced_folder "/path/to/your/cakephp/docs", "/forked_docs"
+    after)  config.vm.synced_folder "/path/to/your/cakephp/docs", "/forked_docs"
 
-And you need to change the path to your cloned docs directory forked from https://github.com/cakephp/docs. For example, `/Users/waterada/cakephp/docs` or `C:/cakephp/docs`.
-
-Then, `vagrant up`.
+- Then, `vagrant up`.
 
     $ vagrant up
 
