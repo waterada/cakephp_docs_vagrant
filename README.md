@@ -12,10 +12,15 @@ Make、Python、Sphinx などを個別にインストールする必要があり
 
 ```
 $ git clone git@github.com:gr-ishiguro/cakephp_docs_vagrant.git
-$ cd cakephp_docs_vagrant
 ```
 
 - https://github.com/cakephp/docs をフォークし、 `cakephp_docs_vagrant/` の直下へとクローンします。
+
+```
+$ cd cakephp_docs_vagrant
+$ git clone git@github.com:your-repogitory/docs.git
+```
+
 - `cakephp_docs_vagrant/` の直下で `vagrant up` してください。
 
 ```
