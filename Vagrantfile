@@ -5,18 +5,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vbguest.auto_update = false
-
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "CentOS68"
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.8_chef-provisionerless.box"
-
-  # Share an additional folder to the guest VM.
-  config.vm.synced_folder "/path/to/your/cakephp/docs", "/forked_docs"
-  config.vm.synced_folder "vagrant_setups", "/vagrant_setups"
+  config.vm.box = "bento/centos-6.7"
+  config.vm.hostname = "cakephp-docs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -30,5 +21,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.boot_timeout = 120
 
-  config.vm.provision "shell", inline: "/bin/bash /vagrant_setups/vagrant_setup.sh"
+  config.vm.provision "shell", inline: <<-SHELL
+    mv "/etc/localtime" "/etc/localtime.org"
+    ln -s "/usr/share/zoneinfo/Japan" "/etc/localtime"
+    yum install -y "epel-release"
+    yum install -y "python-pip"
+    pip install -r "/vagrant/docs/requirements.txt"
+  SHELL
 end
