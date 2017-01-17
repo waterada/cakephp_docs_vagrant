@@ -12,11 +12,11 @@ Make、Python、Sphinx などはもはやインストールする必要があり
 - 下記のコマンドを実行して `vagrant` 関連ファイルを取得します。
 
 ```
-$ git clone https://github.com/waterada/cakephp_docs_vagrant.git
+$ git clone https://github.com/gr-ishiguro/cakephp_docs_vagrant.git
 $ cd cakephp_docs_vagrant
 ```
 
-- `Vagrantfile` の `/path/to/your/cakephp/docs` を自PC内の `docs` のパスに書き換えます。たとえば、 `/Users/waterada/cakephp/docs` もしくは `C:/cakephp/docs` というように。
+- `Vagrantfile` の `/path/to/your/cakephp/docs` を自PC内の `docs` のパスに書き換えます。たとえば、 `/Users/gr-ishiguro/cakephp/docs` もしくは `C:/cakephp/docs` というように。
 
 ```
 $ vi Vagrantfile
